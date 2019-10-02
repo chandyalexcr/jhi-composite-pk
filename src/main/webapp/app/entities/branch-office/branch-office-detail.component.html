@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="branchOffice">
+            <h2><span jhiTranslate="testJhiApp.branchOffice.detail.title">Branch Office</span> {{branchOffice.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testJhiApp.branchOffice.number">Number</span></dt>
+                <dd>
+                    <span>{{branchOffice.number}}</span>
+                </dd>
+                <dt><span jhiTranslate="testJhiApp.branchOffice.name">Name</span></dt>
+                <dd>
+                    <span>{{branchOffice.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="testJhiApp.branchOffice.status">Status</span></dt>
+                <dd>
+                    <span>{{branchOffice.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="testJhiApp.branchOffice.affiliate">Affiliate</span></dt>
+                <dd>
+                    <div *ngIf="branchOffice.affiliateCode">
+                        <a [routerLink]="['/affiliate', branchOffice.affiliateCode, 'view']">{{branchOffice.affiliateCode}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/branch-office', branchOffice.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
